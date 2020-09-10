@@ -42,6 +42,12 @@ const UsersService = {
       username: xss(user.username),
     }
   },
+  getUser(db,id){
+    return db
+      .select('*')
+      .from('users')
+      .where('id',id)
+  }
 }
 
 module.exports = UsersService
