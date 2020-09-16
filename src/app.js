@@ -8,6 +8,7 @@ const app = express();
 const userRouter = require("./users/users-router")
 const authRouter = require("./auth/auth-router");
 const postRouter = require("./post/post-router");
+const GroupingRouter = require("./grouping/grouping-router");
 const morganOption = NODE_ENV === "production" ? "tiny" : "common";
 
 app.use(morgan(morganOption));
@@ -17,6 +18,7 @@ app.use(cors());
 app.use('/api/auth', authRouter);
 app.use('/api/user', userRouter);
 app.use('/api/images', postRouter);
+app.use('/api/album', GroupingRouter);
 
 app.get("/", (req, res) => {
   res.send("Hello, world!");
